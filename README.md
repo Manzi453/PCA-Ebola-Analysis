@@ -1,51 +1,77 @@
-Project overview
+Project Overview – PCA on African Malaria Data
 
-For this sophisticated linear algebra implementation task, Formative 1, we will create Principal Component Analysis from scratch using only the NumPy library. The goal is to minimize the dimensionality of real-world African data while preserving the greatest amount of information by using eigenvalues, eigenvectors, and covariance matrices.
-Dataset: ebola_data_db_format.csv What the data is
-Background: African countries' Ebola outbreak statistics.
-QualitiesOver ten in quantity
-There are missing values in this
+Objective:
+For this sophisticated linear algebra implementation task (Formative 1), we will implement Principal Component Analysis (PCA) from scratch using only the NumPy library. The goal is to reduce the dimensionality of real-world African malaria data while preserving the maximum amount of information using eigenvalues, eigenvectors, and covariance matrices.
 
-Inherently non-numerical
+Dataset: malaria_data_db_format.csv
 
-Actual data, not simulated or fake
-How the method functions
-Without the use of sophisticated machine learning libraries, this PCA adheres to the traditional linear algebra workflow.
-1) Data standardisation
+What the Data Represents:
 
-Normalize the features by computing z = (x – μ) / σ such that:
+African countries’ malaria outbreak statistics
 
-- Mean becomes 0
+Multiple features (over ten) including demographic, environmental, and epidemiological indicators
 
-- Standard Deviation becomes 1
+Contains missing values
 
-This normalisation is vital for the implementation of PCA based on covariance.
+Includes some non-numerical columns that will need preprocessing
 
-2. Covariance Matrix
+Real-world, non-simulated data
 
-Next, we calculate the covariance matrix using NumPy and show how the different features relate.
+How PCA Works (Linear Algebra Approach)
 
-3) Eig
+This PCA implementation follows the traditional linear algebra workflow, without using machine learning libraries:
 
-To better understand where the data's variance is and where the most important directions lie using eigenvalues and eigenvectors:
+Data Standardization
+Normalize features so that each has mean 0 and standard deviation 1, using:
 
-- Eigenvalues measure the amount of variance explained
+𝑧
+=
+𝑥
+−
+𝜇
+𝜎
+z=
+σ
+x−μ
+	​
 
-- Eigenvectors show us the major directions
 
-4) Assembling the components
+This step ensures that features with different scales contribute equally to PCA.
 
-First, arrange the eigenvalues in descending order and pair them with their corresponding eigenvectors:
+Covariance Matrix Calculation
+Compute the covariance matrix with NumPy to understand how features relate to each other and identify correlated variables.
 
-- PC1 accounts for the most variance
+Eigenvalues and Eigenvectors
 
-- The following PCs explain progressively less variance
+Eigenvalues measure how much variance each principal component explains
 
-5) Project onto principal components
+Eigenvectors indicate the directions along which the variance is maximal
 
-Project the standardized data onto the selected principal components.
+Assembling Principal Components
 
-6. Visualization
-- In the original space, visualize using the first two standardized features
-- After applying the PCA, plot in the PC1–PC2 space
-This method enables you to determine the measure of variance maintained and dimensionality reduced. Technologies Involved - Python - NumPy (matrix operations, covariance, eigendecom - Pandas (data loading and preprocessing) - Matplotlib for Visualization
+Sort eigenvalues in descending order and pair them with their eigenvectors
+
+PC1 explains the most variance
+
+Subsequent PCs explain progressively less
+
+Projection onto Principal Components
+Project the standardized data onto the chosen principal components to reduce dimensionality.
+
+Visualization
+
+Plot the first two original standardized features for comparison
+
+Plot the data in the PC1–PC2 space after PCA
+
+Helps evaluate variance preserved and dimensionality reduction achieved
+
+Technologies Used
+
+Python – core language for computation
+
+NumPy – matrix operations, covariance, eigenvalues/eigenvectors
+
+Pandas – data loading, cleaning, and preprocessing
+
+Matplotlib – visualization of original and PCA-transformed data
